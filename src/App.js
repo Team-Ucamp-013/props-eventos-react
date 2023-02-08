@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+// import Car from './components/componente'; 
+import { MiCompomente } from './components/componente';
+
+import Contador1 from './components/evento1';
+import Contador2 from './components/evento2';
+
+import { useState } from 'react';
+import styles from './components/styles.module.css'
 
 function App() {
+  const [contador1, setContador1] = useState(0)
+  const incrementa1 = () => {
+    setContador1(contador1 + 1)
+  }
+
+  const [contador2,setContador2] = useState(0)
+  const incrementa2 = () => {
+    setContador2(contador2 + 1)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+       {/* <Car color="red" /> */}
+   
+     <MiCompomente />
+      
+     <section className={styles.box}>
+     <Contador1 value={contador1} onClick={incrementa1} />
+      <Contador2  value={contador2} onClick={incrementa2}/>
+     </section>
+       
     </div>
   );
 }
