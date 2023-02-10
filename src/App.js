@@ -8,6 +8,8 @@ import Contador2 from './components/evento2';
 import { useState } from 'react';
 import styles from './components/styles.module.css'
 
+import ColorSchemesExample from './navbar/Navbar';
+
 function App() {
   const [contador1, setContador1] = useState(0)
   const incrementa1 = () => {
@@ -23,7 +25,7 @@ function App() {
     <div className="App">
     
        {/* <Car color="red" /> */}
-   
+    <ColorSchemesExample />
      <MiCompomente />
       
      <section className={styles.box}>
