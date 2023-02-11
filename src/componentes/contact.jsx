@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ColorSchemesExample from "../navbar/Navbar";
+import Paciente from "./Pacientes";
 
 export default function Contacto(){
     return (
     <>
-    <ColorSchemesExample />
+    
     <nav>
         <ul>
             <li>
@@ -19,7 +19,8 @@ export default function Contacto(){
             </li>
         </ul>
     </nav>
-    <h1>Números de telefono</h1>
+    <h1>Pacientes</h1>
+    <Paciente />
     </>
     )
 }
