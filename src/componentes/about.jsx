@@ -5,8 +5,8 @@ import axios from 'axios';
 
 export default function About(){
 
-    const [info, setInfo] = useState({})
-   
+     const [info, setInfo] = useState([])
+
     const getData = async() => {
         const url = 'https://hp-api.onrender.com/api/characters'
         const resp = await axios.get(url)
@@ -17,6 +17,8 @@ export default function About(){
     useEffect(()=>{
         getData();
     },[])
+
+    
    
     return (
     <>
@@ -41,13 +43,15 @@ export default function About(){
          <h1>{x.character}</h1>
          <img src={x.image}/>
         </div>)} */}
-    
-    {info.map(x => 
-        <div key={x.id}>
-            <img src={x.image} />
-            <h1>{x.name}</h1>
-            <h1>{x.house}</h1>
-        </div>)}
+
+      {info.map((x,index)=>{
+        return(
+            <div key={index}>
+                <img src={x.image} alt={x.actor}/>
+            </div>
+        )
+     })} 
+
     </>
     )
 }
