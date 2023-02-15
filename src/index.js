@@ -11,7 +11,14 @@ import Contacto from './componentes/contact';
 const router = createBrowserRouter([
   {
     path:'/',
-    element: <Home />
+    element: <Home />,
+    children: [
+      {
+       path:'contacts/:contactid',
+       element: <h1>Yo soy un hijo de mi papá Home</h1> 
+      }
+    ]
+    
   },
   {
     path:'/about',

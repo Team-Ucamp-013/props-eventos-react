@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ColorSchemesExample from "../navbar/Navbar";
+import axios from 'axios';
+
+
 export default function About(){
+
+    const [info, setInfo] = useState({})
+   
+    const getData = async() => {
+        const url = 'https://hp-api.onrender.com/api/characters'
+        const resp = await axios.get(url)
+        setInfo(resp.data)
+        console.log(resp.data)
+    }
+
+    useEffect(()=>{
+        getData();
+    },[])
+   
     return (
     <>
-    <ColorSchemesExample />
+
     <nav>
         <ul>
             <li>
@@ -18,7 +34,20 @@ export default function About(){
             </li>
         </ul>
     </nav>
-    <h1>¿Quienes somos?</h1>
+    <h1>¿Qué voy a traer?</h1>
+     
+     {/* {info.map(x =>
+        <div key={x.id}>
+         <h1>{x.character}</h1>
+         <img src={x.image}/>
+        </div>)} */}
+    
+    {info.map(x => 
+        <div key={x.id}>
+            <img src={x.image} />
+            <h1>{x.name}</h1>
+            <h1>{x.house}</h1>
+        </div>)}
     </>
     )
 }

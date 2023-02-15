@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ColorSchemesExample from "../navbar/Navbar";
+import { Outlet } from "react-router-dom";
 
 export default function Home(){
     return (
@@ -20,6 +21,9 @@ export default function Home(){
         </ul>
     </nav>
     <h1> Hola mundo</h1>
+    <div>
+        <Outlet />
+    </div>
     </>
     )
 }
